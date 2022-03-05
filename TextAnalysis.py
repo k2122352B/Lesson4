@@ -16,6 +16,12 @@ app = Flask(__name__)
 # In[3]:
 
 
+from flask import render_template, request 
+
+
+# In[4]:
+
+
 from flask import request, render_template
 from textblob import TextBlob
 
@@ -25,15 +31,15 @@ def index():
         text = request.form.get("text")
         print(text)
         r = TextBlob(text).sentiment
-        return(render_template("index.html", results = r))
+        return(render_template("index.html", results=r))
     else:
-        return(render_template("index.html", results = '2'))
+        return(render_template("index.html", results='2'))
 
 
 # In[ ]:
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" :
     app.run()
 
 
